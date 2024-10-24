@@ -25,11 +25,44 @@ Theatre Service API is a Django-based web application for theatre management.
 1. Clone the repository:
 ```
 git clone https://github.com/oleksashcherbakov/Theatre-Service-API.git
-cd theatre-service
+cd Theatre-Service-API
+python - m venv venv
+sourse venv/bin/activate
+pip install - r requiments.txt
+create correct .env file from .env.sample
+python manage.py migrate
+python manage.py runserver
+```
+2. Run with docker
+```
 docker-compose build
 docker-compose up
 ```
-2. Register a user: Access the registration endpoint at '/api/user/register'.
+3. Register a user: Access the registration endpoint at '/api/user/register'.
 3. Obtain Access and Refresh Tokens: Use the endpoint at '/api/user/token' to get tokens.
 4. Use Tokens: Include the tokens in the header of your HTTP requests for authentication.
 
+#### Architecture diagram
+![DB schema](media/project_screens/img.png)
+
+### API Endpoints
+#### User Management
+- `POST /user/register/` - Register a new user
+- `POST /user/token/` - Obtain JWT token
+- `POST /user/token/refresh/` - Refresh JWT token
+- `POST /user/token/verify/` - Verify JWT token
+- `GET /user/me/` - Retrieve or update the authenticated user
+#### Theatre API (prefix: /api/theatre)
+- `/actors/` - List and create actors
+- `/genres/` - List and create genres
+- `/plays/` - List and create plays
+- `/theatre_halls/` - List and create crew theatre halls
+- `/performances/` - List and create performances
+- `/reservations/` - List and create reservations
+- `/tickets/` - List and create tickets
+
+### Admin Interface
+The Django admin interface is available at /admin/. You can use it to manage the database entries directly.
+
+### Debug Toolbar
+The Django Debug Toolbar is included in the project. It's automatically added to the URL patterns when in debug mode.
