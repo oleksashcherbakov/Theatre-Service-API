@@ -21,7 +21,3 @@ services:
       - "5432:5432"
     volumes:
       - my_db:$PGDATA
-
-volumes:
-  my_db:
-  my_media:
