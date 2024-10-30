@@ -21,7 +21,6 @@ from theatre.serializers import (
     PlayRetrieveSerializer,
     PerformanceRetrieveSerializer,
     TicketListSerializer,
-
     TicketRetrieveSerializer,
 )
 
